@@ -87,10 +87,15 @@
     "spryker-feature/state-machine": "^201907.0",
     "spryker-feature/tax": "^201907.0",
     "spryker-shop/calculation-page": "^1.0.0",
+    "spryker-shop/cart-page": "~3.6.0",
     "spryker-shop/chart-widget": "^0.2.0",
     "spryker-shop/cms-content-widget-chart-connector": "^1.0.0",
     "spryker-shop/cms-content-widget-product-connector": "^1.0.0",
     "spryker-shop/cms-content-widget-product-set-connector": "^1.0.0",
+    "spryker-shop/customer-page": "~1.23.0",
+    "spryker-shop/multi-cart-page": "~2.1.0",
+    "spryker-shop/product-detail-page": "~3.1.0",
+    "spryker-shop/shopping-list-widget": "~0.6.0",
     "spryker/alternative-products-rest-api": "^1.0.0",
     "spryker/auth-mail-connector": "^3.0.0",
     "spryker/auth-rest-api": "^2.6.0",
@@ -219,6 +224,7 @@
     "spryker/architecture-sniffer": "^0.4.0",
     "spryker/code-sniffer": "^0.14.0",
     "spryker/testify": "^3.0.0",
+    "spryker/web-profiler": "^1.5",
     "stecman/symfony-console-completion": "^0.8.0",
     "symfony/var-dumper": "*",
     "symfony/web-profiler-bundle": "^4.0.0"
@@ -248,7 +254,9 @@
     },
     "use-include-path": true,
     "sort-packages": true,
-    "github-protocols": ["https"],
+    "github-protocols": [
+      "https"
+    ],
     "process-timeout": 900
   },
   "scripts": {
