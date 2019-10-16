@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c4e8fa4f1a7ccc970e4c81fa3a58542d",
+    "content-hash": "5073f1fc881f2bf6f5396200759af90e",
     "packages": [
         {
             "name": "codeception/phpunit-wrapper",
@@ -38882,6 +38882,50 @@
             "time": "2019-08-01T16:12:55+00:00"
         },
         {
+            "name": "spryker-sdk/composer-constrainer",
+            "version": "dev-feature/te-3977/master/fix-up-case-of-non-primary-level-module",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spryker-sdk/composer-constrainer.git",
+                "reference": "728e9a5ec1c4797df4fd901c1f60106bac9390d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spryker-sdk/composer-constrainer/zipball/728e9a5ec1c4797df4fd901c1f60106bac9390d4",
+                "reference": "728e9a5ec1c4797df4fd901c1f60106bac9390d4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "spryker/kernel": "^3.33.0",
+                "spryker/symfony": "^3.2.2",
+                "spryker/zend": "^2.1.0"
+            },
+            "require-dev": {
+                "sllh/composer-versions-check": "^2.0.2",
+                "spryker/code-sniffer": "*",
+                "spryker/console": "*",
+                "spryker/testify": "^3.15.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SprykerSdk\\": "src/SprykerSdk/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "ComposerConstrainer module",
+            "time": "2019-10-16T12:11:23+00:00"
+        },
+        {
             "name": "spryker-sdk/phpstan-spryker",
             "version": "0.2.0",
             "source": {
@@ -39984,7 +40028,8 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "spryker-eco/loggly": 20
+        "spryker-eco/loggly": 20,
+        "spryker-sdk/composer-constrainer": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
