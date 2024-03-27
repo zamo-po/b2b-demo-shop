@@ -125,7 +125,6 @@ use Generated\Shared\Transfer\AddPaymentMethodTransfer;
 use Generated\Shared\Transfer\DeletePaymentMethodTransfer;
 use Generated\Shared\Transfer\PaymentAuthorizationFailedTransfer;
 use Generated\Shared\Transfer\PaymentAuthorizedTransfer;
-use Spryker\Shared\Payment\PaymentConstants;
 
 // ############################################################################
 // ############################## PRODUCTION CONFIGURATION ####################
