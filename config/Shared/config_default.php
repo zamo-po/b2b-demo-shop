@@ -118,6 +118,13 @@ use Spryker\Zed\Payment\PaymentConfig;
 use Spryker\Zed\Propel\PropelConfig;
 use SprykerShop\Shared\CustomerPage\CustomerPageConstants;
 use SprykerShop\Shared\ShopUi\ShopUiConstants;
+use Generated\Shared\Transfer\PaymentCaptureFailedTransfer;
+use Generated\Shared\Transfer\CapturePaymentTransfer;
+use Generated\Shared\Transfer\PaymentCapturedTransfer;
+use Generated\Shared\Transfer\AddPaymentMethodTransfer;
+use Generated\Shared\Transfer\DeletePaymentMethodTransfer;
+use Generated\Shared\Transfer\PaymentAuthorizationFailedTransfer;
+use Generated\Shared\Transfer\PaymentAuthorizedTransfer;
 
 // ############################################################################
 // ############################## PRODUCTION CONFIGURATION ####################
@@ -657,7 +664,7 @@ $config[OmsConstants::ACTIVE_PROCESSES] = [
     'ForeignPaymentB2CStateMachine01',
 ];
 $config[SalesConstants::PAYMENT_METHOD_STATEMACHINE_MAPPING] = [
-    PaymentConfig::PAYMENT_FOREIGN_PROVIDER => 'ForeignPaymentB2CStateMachine01',
+    PaymentConfig::PAYMENT_FOREIGN_PROVIDER => 'ForeignPaymentStateMachine01',
 ];
 
 $config[OmsConstants::PROCESS_LOCATION] = [
@@ -773,6 +780,17 @@ $config[MessageBrokerAwsConstants::MESSAGE_TO_CHANNEL_MAP] = [
     ConfigureTaxAppTransfer::class => 'tax-commands',
     DeleteTaxAppTransfer::class => 'tax-commands',
     SubmitPaymentTaxInvoiceTransfer::class => 'payment-tax-invoice-commands',
+    AddPaymentMethodTransfer::class => 'payment-method-commands',
+    DeletePaymentMethodTransfer::class => 'payment-method-commands',
+    CancelPaymentTransfer::class => 'payment-commands',
+    CapturePaymentTransfer::class => 'payment-commands',
+    RefundPaymentTransfer::class => 'payment-commands',
+    PaymentAuthorizedTransfer::class => 'payment-events',
+    PaymentAuthorizationFailedTransfer::class => 'payment-events',
+    PaymentCapturedTransfer::class => 'payment-events',
+    PaymentCaptureFailedTransfer::class => 'payment-events',
+    PaymentCanceledTransfer::class => 'payment-events',
+    PaymentCancellationFailedTransfer::class => 'payment-events',
 ];
 
 $config[MessageBrokerConstants::CHANNEL_TO_RECEIVER_TRANSPORT_MAP] = [
@@ -801,6 +819,11 @@ $config[MessageBrokerConstants::IS_ENABLED] = (
     && $config[MessageBrokerAwsConstants::HTTP_CHANNEL_RECEIVER_BASE_URL]
 );
 
+$config[OauthClientConstants::TENANT_IDENTIFIER]
+    = $config[MessageBrokerConstants::TENANT_IDENTIFIER]
+    = $config[MessageBrokerAwsConstants::CONSUMER_ID]
+    = $config[AppCatalogGuiConstants::TENANT_IDENTIFIER]
+    = getenv('SPRYKER_TENANT_IDENTIFIER') ?: '';
 // ----------------------------------------------------------------------------
 // ------------------------------ OAUTH ---------------------------------------
 // ----------------------------------------------------------------------------
@@ -819,3 +842,6 @@ $config[OauthClientConstants::OAUTH_OPTION_AUDIENCE_FOR_PAYMENT_AUTHORIZE] = 'ao
 $config[TaxAppConstants::OAUTH_PROVIDER_NAME] = OauthAuth0Config::PROVIDER_NAME;
 $config[TaxAppConstants::OAUTH_GRANT_TYPE] = OauthAuth0Config::GRANT_TYPE_CLIENT_CREDENTIALS;
 $config[TaxAppConstants::OAUTH_OPTION_AUDIENCE] = 'aop-app';
+
+//            STRIPE
+$config[PaymentConstants::TENANT_IDENTIFIER] = getenv('SPRYKER_TENANT_IDENTIFIER') ?: '';
