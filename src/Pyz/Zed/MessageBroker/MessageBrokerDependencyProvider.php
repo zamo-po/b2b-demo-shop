@@ -31,6 +31,10 @@ use Spryker\Zed\ProductReview\Communication\Plugin\MessageBroker\ProductReviewAd
 use Spryker\Zed\SearchHttp\Communication\Plugin\MessageBroker\SearchEndpointMessageHandlerPlugin;
 use Spryker\Zed\Session\Communication\Plugin\MessageBroker\SessionTrackingIdMessageAttributeProviderPlugin;
 use Spryker\Zed\TaxApp\Communication\Plugin\MessageBroker\TaxAppMessageHandlerPlugin;
+use Spryker\Zed\MessageBroker\Communication\Plugin\MessageBroker\TenantActorMessageAttributeProviderPlugin;
+use Spryker\Zed\MessageBrokerAws\Communication\Plugin\MessageBroker\Sender\HttpChannelMessageSenderPlugin;
+use Spryker\Zed\Payment\Communication\Plugin\MessageBroker\PaymentOperationsMessageHandlerPlugin;
+use Spryker\Zed\Payment\Communication\Plugin\MessageBroker\PaymentMethodMessageHandlerPlugin;
 
 class MessageBrokerDependencyProvider extends SprykerMessageBrokerDependencyProvider
 {
@@ -41,6 +45,9 @@ class MessageBrokerDependencyProvider extends SprykerMessageBrokerDependencyProv
     {
         return [
             new HttpChannelMessageSenderPlugin(),
+            new AwsSnsMessageSenderPlugin(),
+#            new AwsSqsMessageSenderPlugin(),
+            new HttpMessageSenderPlugin(),
         ];
     }
 
@@ -74,6 +81,8 @@ class MessageBrokerDependencyProvider extends SprykerMessageBrokerDependencyProv
             new SearchEndpointMessageHandlerPlugin(),
             new ProductReviewAddReviewsMessageHandlerPlugin(),
             new TaxAppMessageHandlerPlugin(),
+            new PaymentOperationsMessageHandlerPlugin(),
+            new PaymentMethodMessageHandlerPlugin(),
         ];
     }
 
